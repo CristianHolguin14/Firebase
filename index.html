@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBwguz8XIdadAO4hYxzOkwMYizrfrLFyRs",
+    authDomain: "chat-b50b7.firebaseapp.com",
+    databaseURL: "https://chat-b50b7.firebaseio.com",
+    projectId: "chat-b50b7",
+    storageBucket: "chat-b50b7.appspot.com",
+    messagingSenderId: "846803188817"
+  };
+  firebase.initializeApp(config);
+  const database = firebase.database();
+
+  const mensajes = database.ref('mensajes');
+  mensajes.push({
+  	mensaje: "Hola mundo cruel",
+  	privado: true,
+  	leido: false
+  }, function(error){
+  	if(error) {
+  		console.log(error);
+
+  	} else {
+  		console.log('mensaje enviado')
+  	}
+  });
+</script>
+</body>
+</html>
